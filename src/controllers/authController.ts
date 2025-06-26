@@ -6,9 +6,11 @@ import { AuthRequest } from '../middleware/authMiddleware';
 const JWT_SECRET = process.env.JWT_SECRET || 'secret';
 
 export const register = async (req: Request, res: Response) => {
+  
   try {
     const { name, email, phone, password } = req.body;
-    console.log('Received registration:', { name, email, phone, password });
+    
+
     if (!name || !email || !phone || !password) {
       return res.status(400).json({ message: 'All fields required' });
     }
